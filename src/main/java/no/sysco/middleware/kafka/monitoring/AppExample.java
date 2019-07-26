@@ -16,7 +16,7 @@ import java.util.Properties;
 import java.util.UUID;
 
 public class AppExample {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         String id1 = UUID.randomUUID().toString();
         String group1 = UUID.randomUUID().toString();
 
@@ -30,7 +30,7 @@ public class AppExample {
             for (ConsumerRecord record : poll) {
                 System.out.println(record.key());
             }
-            Thread.sleep(3_000);
+            kafkaConsumer.commitAsync();
         }
     }
 
@@ -43,8 +43,6 @@ public class AppExample {
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         properties.put(ConsumerConfig.METRIC_REPORTER_CLASSES_CONFIG, "no.sysco.middleware.kafka.monitoring.KafkaConsumerApiMetrics");
-        properties.put(ConsumerConfig.METRICS_SAMPLE_WINDOW_MS_CONFIG, 3000);
-        properties.put(ConsumerConfig.METRICS_NUM_SAMPLES_CONFIG, 15);
         return properties;
     }
 
