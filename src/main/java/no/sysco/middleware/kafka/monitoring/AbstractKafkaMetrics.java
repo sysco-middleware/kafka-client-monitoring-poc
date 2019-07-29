@@ -17,6 +17,10 @@ public abstract class AbstractKafkaMetrics implements MetricsReporter {
     @Override
     public void init(List<KafkaMetric> metrics) {
         System.out.println("INITED");
+
+        for(KafkaMetric metric : metrics) {
+            System.out.println(metric);
+        }
     }
 
     @Override

@@ -14,6 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <kafka-client.version>2.1.1</kafka-client.version>
+        <micrometer.version>1.2.0</micrometer.version>
     </properties>
 
     <dependencies>
@@ -27,5 +28,29 @@
             <artifactId>kafka-streams</artifactId>
             <version>${kafka-client.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+            <version>${micrometer.version}</version>
+            <scope>system</scope>
+            <systemPath>${user.home}/src/github.com/micrometer-metrics/micrometer/micrometer-core/build/libs/micrometer-core-1.3.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.linecorp.armeria</groupId>
+            <artifactId>armeria</artifactId>
+            <version>0.88.0</version>
+        </dependency>
+
+
     </dependencies>
 </project>
