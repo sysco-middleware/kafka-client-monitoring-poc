@@ -13,7 +13,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <kafka-client.version>2.1.1</kafka-client.version>
+        <kafka-client.version>2.6.3</kafka-client.version>
     </properties>
 
     <dependencies>
